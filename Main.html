@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Ballet:opsz@16..72&family=Cinzel:wght@400..900&family=GFS+Neohellenic:ital,wght@0,400;0,700;1,400;1,700&family=Glory:ital,wght@0,100..800;1,100..800&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin : 0;
+            padding : 0;
+            overflow-x : hidden;
+        }
+
+        .background{
+            width : 100%;
+            height : 100vh;
+            overflow : hidden;
+            position : relative;
+        }
+        
+        .menu-background{
+            width : 100%;
+            height : auto;
+            overflow : hidden;
+            position : relative;
+        }
+
+        .menu-background-img{
+            width : 100%;
+            display : block;
+            z-index : 0;
+        }
+        
+        .background-img {
+            width : 100%;
+            object-fit : cover;
+            position : absolute;
+            z-index : 0;
+        }
+
+        .words-move-track {
+            position : absolute;
+            display : inline-block;
+            animation : scroll 20s linear infinite;
+            overflow-x : hidden;
+            right : 0;
+            z-index : 1;
+        }
+
+        .words-move {
+            width : 100%;
+            white-space : nowrap;
+            font-family : "Antic Didone", serif;
+            color : #c7c6c6;
+            font-size : 3vh;
+            z-index : 1;
+        }
+
+        .welcome-sign {
+            position : absolute;
+            color : #d7bac2;
+            font-family : "Cinzel", cursive;
+            z-index : 1;
+        }
+
+        .cafe-sign {
+            position : absolute;
+            color : #b78a96;
+            font-family : "Ballet", cursive;
+            z-index : 1;
+        }
+
+        .slogan-sign {
+            position : absolute;
+            color : #ffffff;
+            font-family : "Cinzel", cursive;
+            z-index : 1;
+        }
+
+        .favorite-sign {
+            position : absolute;
+            color : #000000;
+            font-family : "UnifrakturMaguntia", cursive;
+            font-size : 700%;
+            z-index : 1;
+        }
+
+        .cake {
+            position : absolute;
+            z-index : 1;
+        }
+
+        .cake-slice {
+            position : absolute;
+            transition: transform 1.2s ease;
+            z-index : 1;
+        }
+
+        .cake-slice.slice-out {
+            transform: translate(-20%, -20%);
+        }
+
+        .favorite-name {
+            position : absolute;
+            background-color: #cec5b7;
+            color : #b12f2f;
+            font-family : "Cinzel", cursive;
+            font-size : 4vh;
+            padding : 2vh;
+            transition : opacity 0.5s ease-in;
+            opacity : 0.5;
+            z-index : 1;
+
+        }
+        .favorite-name.fade-in {
+            opacity : 1;
+        }
+
+        .menu{
+            position : relative;
+            width : 100%;
+            z-index : 1;
+            margin : 0;
+        }
+
+        .menu-card {
+            position : absolute;
+            width : 70%;
+            left : 15%;
+            top : 5%;
+            opacity : 0.5;
+            transition : opacity 0.3s ease-in;
+            z-index : 1;
+        }
+
+        .menu-card-drinks {
+            position : absolute;
+            width : 40%;
+            left : 5%;
+            top : 5%;
+            opacity : 0.5;
+            transition : opacity 0.3s ease-in;
+            z-index : 1;
+        }
+
+        .second-menu-card-drinks {
+            position : absolute;
+            width : 40%;
+            left : 55%;
+            top : 5%;
+            opacity : 0.5;
+            transition : opacity 0.3s ease-in;
+            z-index : 1;
+        }
+
+        .menu-card.fade-in, .menu-card-drinks.fade-in, .second-menu-card-drinks.fade-in{
+            opacity : 1;
+        }
+
+        .coffeebeans{
+            position : absolute;
+            width : 70%;
+            top : 10%;
+            left : 15%;
+            transition : transform 1s ease;
+            z-index : 1;
+        }
+
+        .coffeebeans.drop {
+            transform : translateY(30%);
+        }
+
+        .phone{
+            position : absolute;
+            width : 120%;
+            top : 15%;
+            animation : tilt 0.5s infinite alternate;
+            z-index : 1;
+        }
+        @media (orientation: landscape){
+            .vinyl {
+                top : 10%;
+                left : 0;
+                width : 95vh;
+                height : auto;
+                position :absolute;
+                animation : spin 10s linear infinite;
+            }
+            
+            .vinyl-player {
+                position : absolute;
+                top : 10%;
+                right : 73%;
+                width : 55vh;
+                height : auto;
+            }
+
+            .welcome-sign {
+                font-size : 5vh;
+                top : 22vh;
+                right : 20%;
+            }   
+
+            .cafe-sign {
+                font-size : 15vh;
+                top : 22vh;
+                right : 13%;
+            }
+
+            .slogan-sign {
+                font-size : 3vh;
+                top : 75vh;
+                right : 17%;
+            }
+
+            .favorite-sign {
+                left : 35vh;
+                top : 5vh;
+            }
+
+            .cake {
+                left : 65vh;
+                width : 60vh;
+                top : 20vh;
+            }
+
+            .cake-slice {
+                left : 60vh;
+                width : 50vh;
+                top : 25vh;
+            }
+
+            .favorite-name {
+                top : 75vh;
+                left :  40%;
+                bottom : 8%;
+            }
+        }
+
+        @media (orientation: portrait) {
+            .vinyl {
+                top : 20%;
+                left : -15%;
+                width : 70vh;
+                position : absolute;
+                animation: spin 10s linear infinite;
+            }
+
+            .vinyl-player {
+                top : 25%;
+                left : -10%;
+                width : 30vh;
+                position : absolute;
+            }
+
+            .welcome-sign {
+                font-size : 4vh;
+                top : 28vh;
+                right : 7%;
+            }   
+
+            .cafe-sign {
+                font-size : 8vh;
+                top : 33vh;
+                right : 7%;
+            }
+
+            .slogan-sign {
+                font-size : 2vh;
+                top : 65vh;
+                right : 5%;
+            }
+            
+            .favorite-sign {
+                left : 15%;
+            }
+
+            .cake {
+                left : 25vh;
+                width : 50vh;
+                top : 30vh;
+            }
+
+            .cake-slice {
+                left : 20vh;
+                width : 40vh;
+                top : 40vh;
+            }
+
+            .favorite-name {
+                top : 73vh;
+                left : 25%;
+                bottom : 10%;
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        @keyframes tilt {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(5deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <img src="first-background.jpg" class="background-img" alt="Cover">
+        <div class="words-move-track">
+            <p class = "words-move">Vibes • Nostalgia • Coffee • Beans • Grind • Music • Vinyls • Cakes • Cozy • Warm • Artisan • Authentic • Story • Amber • Haze • Love</p>
+        </div>
+        <img src="first-vinyl.png" class="vinyl" alt="Vinyl Image">
+        <img src="first-vinylplayer.png" class="vinyl-player" alt="Vinyl Player Image">
+        <p class="welcome-sign">Welcome to</p>
+        <p class="cafe-sign">Amber Cafe</p>
+        <p class="slogan-sign">The coffee brew like before</p>
+    </div>
+    <div class="background" id="favorite-section">
+        <img src="second-background.png" class="background-img" alt="All Time Favorite">
+        <p class="favorite-sign">All Time Favorite</p>
+        <img src="second-cake.png" class="cake" alt="Cake Image">
+        <img src="second-slice.png" class="cake-slice" alt="Cake Slice Image">
+        <p class="favorite-name">Velvet à la Amber</p>
+    </div>
+    <div class="menu-background">
+        <img src="third-firstbackground.png" class="menu-background-img" alt="Cakes section">
+    </div>
+    <div class="menu-background">
+        <div class="menu" id ="menu-section">
+            <img src="third-background.png" class="menu-background-img" alt="Menu Background">
+            <img src="Third-firstmenu.png" class="menu-card" alt="Velvet à la Amber">
+        </div>
+        <div class="menu" id ="menu-section">
+            <img src="third-background.png" class="menu-background-img" alt="Menu Background">
+            <img src="Third-secondmenu.png" class="menu-card" alt="Midnight Cocoa">
+        </div>
+        <div class="menu" id="menu-section">
+            <img src="third-background.png" class="menu-background-img" alt="Menu Background">
+            <img src="Third-thirdmenu.png" class="menu-card" alt="Golden Caramel">
+        </div>
+        <img src="third-lastbackground.png" class="menu-background-img" alt="Menu Background">
+    </div>
+    <div class="menu-background">
+        <img src="four-firstbackground.png" class="menu-background-img" alt="Drinks section">
+    </div>
+    <div class="menu-background">
+        <div class="menu" id ="menu-section">
+            <img src="four-background.png" class="menu-background-img" alt="Menu Background">
+            <img src="Four-firstmenu.png" class="menu-card-drinks" alt="Matcha Latte">
+            <img src="Four-secondmenu.png" class="second-menu-card-drinks" alt="Cappuccino Delight">
+        </div>
+        <div class="menu" id="menu-section">
+            <img src="four-background.png" class="menu-background-img" alt="Menu Background">
+            <img src="Four-thirdmenu.png" class="menu-card-drinks" alt="Vanilla Latte">
+        </div>
+        <img src="four-lastbackground.png" class="menu-background-img" alt="Menu Background">
+    </div>
+    <div class="menu-background" id="aboutus-section">
+        <img src="fifth-background.png" class="menu-background-img" alt="About Us">
+        <img src="fifth-coffeebeans.png" class="coffeebeans" alt="Coffee beans">
+    </div>
+    <div class="menu-background">
+        <img src="sixth-background.png" class="menu-background-img" alt="Contact Us">
+        <img src="sixth-phone.png" class="phone" alt="Phone">
+    </div>
+    <script>
+        const favoritesection = document.getElementById("favorite-section");
+        const slice = document.querySelector(".cake-slice");
+        const favoriteName = document.querySelector(".favorite-name");
+        const menus = document.querySelectorAll(".menu");
+        const aboutussection = document.getElementById("aboutus-section");
+        const beans = document.querySelector(".coffeebeans");
+
+        const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (slice) {
+                if (entry.isIntersecting) {
+            slice.classList.add("slice-out");
+            favoriteName.classList.add("fade-in");
+                } else {
+            slice.classList.remove("slice-out");
+            favoriteName.classList.remove("fade-in");
+            }
+            }
+            if (beans) {
+                if (entry.isIntersecting) {
+                    beans.classList.add("drop");
+                } else {
+                    beans.classList.remove("drop");
+                }
+            }
+        },
+        {
+            threshold: 0.6
+        }
+        );
+
+        const menuObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                const card = entry.target.querySelector(".menu-card");
+                const cardDrinks = entry.target.querySelector(".menu-card-drinks");
+                const secondCardDrinks = entry.target.querySelector(".second-menu-card-drinks");
+                if (card) {
+                    if (entry.isIntersecting) {
+                        card.classList.add("fade-in");
+                    } else {
+                        card.classList.remove("fade-in");
+                    }
+                }
+                if (cardDrinks || secondCardDrinks) {
+                    if (entry.isIntersecting) {
+                        cardDrinks.classList.add("fade-in");
+                        secondCardDrinks.classList.add("fade-in");
+                    } else {
+                        cardDrinks.classList.remove("fade-in");
+                        secondCardDrinks.classList.remove("fade-in");
+                    }
+                }
+            });
+        },
+        {
+            threshold: 0.4
+        }
+        );
+
+        observer.observe(favoritesection);
+        menus.forEach(menu => {
+            menuObserver.observe(menu);
+        });
+        observer.observe(aboutussection);
+    </script>
+</body>
+</html>
