@@ -27,7 +27,7 @@ cd Amber-Cafe-main
 Open the Main.html file directly in your preferred web browser.
 
 Project Structure
-<img width="371" height="290" alt="image" src="https://github.com/user-attachments/assets/a2c0c6c6-f3fe-4807-8e5c-88665f34b52c" />
+<br><img width="371" height="290" alt="image" src="https://github.com/user-attachments/assets/a2c0c6c6-f3fe-4807-8e5c-88665f34b52c" />
 
 Acknowledgments
 Built as a foundational project to practice core web technologies.
