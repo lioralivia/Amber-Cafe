@@ -27,25 +27,8 @@ cd Amber-Cafe-main
 Open the Main.html file directly in your preferred web browser.
 
 Project Structure
-Plaintext
-Amber-Cafe-main/
-│
-├── Main.html                 # Main entry point and structural layout
-├── first-background.jpg      # Hero section background image
-├── second-background.png     # Secondary section background
-├── fourth-background.png     # Menu or content section background
-├── fifth-background.png      # Footer or lower section background
-│
-├── first-vinyl.png           # Decorative UI asset
-├── first-vinylplayer.png     # Decorative UI asset
-├── second-cake.png           # Menu item imagery
-├── second-slice.png          # Menu item imagery
-├── fifth-coffeebeans.png     # Menu item imagery
-│
-├── four-firstmenu.png        # Menu interface component
-├── four-secondmenu.png       # Menu interface component
-├── four-thirdmenu.png        # Menu interface component
-└── four-lastbackground.png   # Bottom layout asset
+<img width="371" height="290" alt="image" src="https://github.com/user-attachments/assets/a2c0c6c6-f3fe-4807-8e5c-88665f34b52c" />
+
 Acknowledgments
 Built as a foundational project to practice core web technologies.
 
